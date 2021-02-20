@@ -7,10 +7,24 @@ import { Core } from '@keystone-ui/core';
 import * as viewceb36454 from '../../../node_modules/@keystone-next/fields/types/mongoId/views';
 import * as viewbb430229 from '../../../node_modules/@keystone-next/fields/types/text/views';
 import * as viewfa580207 from '../../../node_modules/@keystone-next/fields/types/password/views';
+import * as view42566c2a from '../../../node_modules/@keystone-next/fields/types/timestamp/views';
+import * as view88962e62 from '../../../node_modules/@keystone-next/fields/types/relationship/views';
+import * as viewe706ac6b from '../../../node_modules/@keystone-next/fields/types/select/views';
+import * as view670b4061 from '../../../node_modules/@keystone-next/fields/types/integer/views';
+import * as view77ed2809 from '../../../node_modules/@keystone-next/cloudinary/views';
 
 const adminConfig = {};
 
-const fieldViews = { viewceb36454, viewbb430229, viewfa580207 };
+const fieldViews = {
+  viewceb36454,
+  viewbb430229,
+  viewfa580207,
+  view42566c2a,
+  view88962e62,
+  viewe706ac6b,
+  view670b4061,
+  view77ed2809,
+};
 
 const lazyMetadataQuery = {
   kind: 'Document',
@@ -150,6 +164,29 @@ const lazyMetadataQuery = {
             },
             loc: { start: 22, end: 234 },
           },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'authenticatedItem' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: { kind: 'Name', value: 'User' },
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                      { kind: 'Field', name: { kind: 'Name', value: 'name' } },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
         ],
       },
     },
@@ -161,7 +198,7 @@ export default function App({ Component, pageProps }) {
     <Core>
       <KeystoneProvider
         adminConfig={adminConfig}
-        adminMetaHash="86yxuq"
+        adminMetaHash="84qb16"
         fieldViews={fieldViews}
         lazyMetadataQuery={lazyMetadataQuery}
       >
