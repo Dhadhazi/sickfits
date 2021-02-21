@@ -23,7 +23,7 @@ const HeaderStyles = styled.header`
     display: grid;
     grid-template-columns: auto 1fr;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
   }
   .sub-bar {
     display: grid;
@@ -37,10 +37,10 @@ export const Header = () => (
       <Logo>
         <Link href="/">Sick fits</Link>
       </Logo>
+      <Nav />
     </div>
     <div className="sub-bar">
       <p>Search</p>
     </div>
-    <Nav />
   </HeaderStyles>
 );
