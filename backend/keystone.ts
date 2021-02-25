@@ -26,6 +26,11 @@ const { withAuth } = createAuth({
     fields: ["name", "email", "password"],
     // TODO: Add in inital roles here
   },
+  passwordResetLink: {
+    async sendToken(args) {
+      console.log(args);
+    },
+  },
 });
 
 export default withAuth(
@@ -41,6 +46,7 @@ export default withAuth(
       adapter: "mongoose",
       url: databaseURL,
       async onConnect(keystone) {
+        console.log("Connected to the database!");
         if (process.argv.includes("--seed-data")) {
           await insertSeedData(keystone);
         }
